@@ -1,9 +1,12 @@
-package com.aylanj123.fungalovergrowth.eventhandler;
+package com.aylanj123.fungalovergrowth.event;
 import com.aylanj123.fungalovergrowth.FungalOvergrowthMod;
+import com.aylanj123.fungalovergrowth.classes.entity.InfectedZombie;
 import com.aylanj123.fungalovergrowth.datagen.language.*;
 import com.aylanj123.fungalovergrowth.networking.PacketHandler;
+import com.aylanj123.fungalovergrowth.registry.EntityRegistry;
 import net.minecraft.data.DataProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -70,6 +73,11 @@ public class CommonEventHandler {
         static void commonSetUp(FMLCommonSetupEvent event) {
             FungalOvergrowthMod.LOGGER.info("Common Set Up");
             PacketHandler.register();
+        }
+
+        @SubscribeEvent
+        static void registerAttributes(EntityAttributeCreationEvent event) {
+            event.put(EntityRegistry.INFECTED_ZOMBIE.get(), InfectedZombie.createAttributes().build());
         }
 
     }

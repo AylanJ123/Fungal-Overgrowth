@@ -10,5 +10,5 @@
   "client": [
   ],
   "minVersion": "0.8",
-  "priority": 99999
+  "priority": 1
 }

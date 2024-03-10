@@ -14,8 +14,8 @@ public class Config
 //    private static final ForgeConfigSpec.ConfigValue<Boolean> CHAT_CONFIRMATION;
 
     static {
-        SERVER_BUILDER.push("Configs for AFK Command mod - Server Sided -");
-        CLIENT_BUILDER.push("Configs for AFK Command mod - Client Sided -");
+        SERVER_BUILDER.push("Configs for Fungal Overgrowth mod - Server Sided -");
+        CLIENT_BUILDER.push("Configs for Fungal Overgrowth mod - Client Sided -");
 
 //        INVINCIBLE_PLAYERS = SERVER_BUILDER
 //                .comment("Players should be invincible and untargetable while AFK. If true, players can't go AFK during combat or if monsters are nearby.")

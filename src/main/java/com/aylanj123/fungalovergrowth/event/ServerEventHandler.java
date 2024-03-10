@@ -1,4 +1,4 @@
-package com.aylanj123.fungalovergrowth.eventhandler;
+package com.aylanj123.fungalovergrowth.event;
 
 import com.aylanj123.fungalovergrowth.FungalOvergrowthMod;
 import com.aylanj123.fungalovergrowth.Config;
