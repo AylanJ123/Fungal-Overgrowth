@@ -101,11 +101,6 @@ public class InfectedZombie extends Zombie {
         return SoundEvents.ZOMBIE_DEATH;
     }
 
-    @Override
-    protected SoundEvent getStepSound() {
-        return SoundEvents.ZOMBIE_STEP;
-    }
-
     public void convertBypass() {
         convertToZombieType(EntityRegistry.INFECTED_ZOMBIE.get());
     }

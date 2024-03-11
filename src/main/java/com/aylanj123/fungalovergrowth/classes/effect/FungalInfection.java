@@ -29,13 +29,7 @@ public class FungalInfection extends MobEffect {
                 Math.min(pLivingEntity.getHealth() - 1, pLivingEntity.getHealth() * ((1f / 3f) * (pAmplifier + 1)))
         );
     }
-
-    @Override
-    public void applyInstantenousEffect(@Nullable Entity pSource, @Nullable Entity pIndirectSource, LivingEntity pLivingEntity, int pAmplifier, double pHealth) {
-        FungalOvergrowthMod.LOGGER.info("LOOOOL");
-        super.applyInstantenousEffect(pSource, pIndirectSource, pLivingEntity, pAmplifier, pHealth);
-    }
-
+    
     @Override
     public boolean isDurationEffectTick(int pDuration, int pAmplifier) {
         return pDuration == 1;
