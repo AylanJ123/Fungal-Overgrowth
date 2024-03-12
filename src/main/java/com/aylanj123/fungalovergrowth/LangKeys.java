@@ -4,9 +4,13 @@ import com.aylanj123.fungalovergrowth.classes.effect.FungalInfection;
 import com.aylanj123.fungalovergrowth.classes.entity.InfectedZombie;
 import com.aylanj123.fungalovergrowth.registry.SoundRegistry;
 
+import static com.aylanj123.fungalovergrowth.registry.ItemRegistry.EGG_FORMAT;
+
 public enum LangKeys {
 
     INFECTED_ZOMBIE(Prefix.ENTITY, InfectedZombie.ID),
+
+    INFECTED_ZOMBIE_EGG(Prefix.ITEM, String.format(EGG_FORMAT, InfectedZombie.ID)),
 
     FUNGAL_INFECTION(Prefix.EFFECT, FungalInfection.ID),
 
@@ -36,6 +40,7 @@ public enum LangKeys {
 
     private enum Prefix {
         ENTITY("entity"),
+        ITEM("item"),
         EFFECT("effect"),
         SOUNDS("sounds");
 

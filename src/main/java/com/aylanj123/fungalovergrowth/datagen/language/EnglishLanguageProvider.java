@@ -13,8 +13,16 @@ public class EnglishLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
+        //Entities
         add(LangKeys.INFECTED_ZOMBIE.key(), "Infected Zombie");
+
+        //Items
+        add(LangKeys.INFECTED_ZOMBIE_EGG.key(), "Infected Zombie Spawn Egg");
+
+        //Effects
         add(LangKeys.FUNGAL_INFECTION.key(), "Fungal Infection");
+
+        //Sounds
         add(LangKeys.INFECTED_CONVERT.key(), "Infection converts zombie");
         add(LangKeys.DEATH.key(), "Infected Zombie dies");
         add(LangKeys.HURT.key(), "Infected Zombie hurts");

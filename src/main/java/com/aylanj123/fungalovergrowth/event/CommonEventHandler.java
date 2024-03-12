@@ -1,6 +1,8 @@
 package com.aylanj123.fungalovergrowth.event;
 import com.aylanj123.fungalovergrowth.FungalOvergrowthMod;
 import com.aylanj123.fungalovergrowth.classes.entity.InfectedZombie;
+import com.aylanj123.fungalovergrowth.datagen.ItemModels;
+import com.aylanj123.fungalovergrowth.datagen.Recipes;
 import com.aylanj123.fungalovergrowth.datagen.SoundsDefinitions;
 import com.aylanj123.fungalovergrowth.datagen.language.*;
 import com.aylanj123.fungalovergrowth.networking.PacketHandler;
@@ -65,7 +67,9 @@ public class CommonEventHandler {
                     new SwedishLanguageProvider(output, "sv_se")
             );
 
+            gen.addProvider(event.includeServer(), new Recipes(output));
             gen.addProvider(event.includeServer(), new SoundsDefinitions(output, helper));
+            gen.addProvider(event.includeClient(), new ItemModels(output, helper));
         }
 
         @SubscribeEvent

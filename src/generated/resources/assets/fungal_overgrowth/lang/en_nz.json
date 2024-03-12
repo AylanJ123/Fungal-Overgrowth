@@ -1,6 +1,7 @@
 {
   "effect.fungal_overgrowth.fungal_infection": "Fungal Infection",
   "entity.fungal_overgrowth.infected_zombie": "Infected Zombie",
+  "item.fungal_overgrowth.infected_zombie_spawn_egg": "Infected Zombie Spawn Egg",
   "sounds.fungal_overgrowth.death": "Infected Zombie dies",
   "sounds.fungal_overgrowth.hurt": "Infected Zombie hurts",
   "sounds.fungal_overgrowth.infected_convert": "Infection converts zombie",

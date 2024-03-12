@@ -8,7 +8,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
-import net.minecraftforge.event.entity.living.MobSpawnEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -17,6 +16,8 @@ import java.util.Random;
 public class ServerEventHandler {
 
     public static class ServerForgeEvents {
+
+        public static final Random RANDOM = new Random();
 
         @SubscribeEvent
         static void serverSetUp(ServerStartingEvent event) {
@@ -28,7 +29,7 @@ public class ServerEventHandler {
         static void mobSpawned(EntityJoinLevelEvent event) {
             Entity entity = event.getEntity();
             if (entity instanceof Zombie && !(entity instanceof InfectedZombie))
-                if ((new Random()).nextFloat() < Config.infectedReplaceChance)
+                if (RANDOM.nextFloat() < Config.infectedReplaceChance)
                     ConversionHelper.convert((LivingEntity) entity);
         }
 

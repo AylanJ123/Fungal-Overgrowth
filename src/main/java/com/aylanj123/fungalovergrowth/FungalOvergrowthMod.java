@@ -19,7 +19,7 @@ public class FungalOvergrowthMod
     public FungalOvergrowthMod()
     {
         MinecraftForge.EVENT_BUS.register(ServerEventHandler.ServerForgeEvents.class);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Config.SERVER_SPEC, MODID + "-server.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SERVER_SPEC, MODID + ".toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Config.CLIENT_SPEC, MODID + "-client.toml");
         Registry.register(FMLJavaModLoadingContext.get().getModEventBus());
     }

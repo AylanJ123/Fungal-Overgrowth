@@ -6,6 +6,7 @@ public class Registry {
 
     public static void register(IEventBus bus) {
         EntityRegistry.ENTITIES.register(bus);
+        ItemRegistry.ITEMS.register(bus);
         EffectRegistry.EFFECTS.register(bus);
         SoundRegistry.SOUNDS.register(bus);
     }
