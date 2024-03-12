@@ -13,7 +13,7 @@ public class EffectRegistry {
     public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, FungalOvergrowthMod.MODID);
 
     public static final RegistryObject<MobEffect> FUNGAL_INFECTION = EFFECTS.register(
-            "fungal_infection", () -> new FungalInfection(MobEffectCategory.HARMFUL)
+            FungalInfection.ID, () -> new FungalInfection(MobEffectCategory.HARMFUL)
     );
 
 }

@@ -9,7 +9,7 @@ public class Config
     public static final ForgeConfigSpec SERVER_SPEC;
     public static final ForgeConfigSpec CLIENT_SPEC;
 
-//    private static final ForgeConfigSpec.ConfigValue<Boolean> INVINCIBLE_PLAYERS;
+    private static final ForgeConfigSpec.ConfigValue<Float> INFECTED_REPLACE_CHANCE;
 
 //    private static final ForgeConfigSpec.ConfigValue<Boolean> CHAT_CONFIRMATION;
 
@@ -17,9 +17,9 @@ public class Config
         SERVER_BUILDER.push("Configs for Fungal Overgrowth mod - Server Sided -");
         CLIENT_BUILDER.push("Configs for Fungal Overgrowth mod - Client Sided -");
 
-//        INVINCIBLE_PLAYERS = SERVER_BUILDER
-//                .comment("Players should be invincible and untargetable while AFK. If true, players can't go AFK during combat or if monsters are nearby.")
-//                .define("invinciblePlayers", false);
+        INFECTED_REPLACE_CHANCE = SERVER_BUILDER
+                .comment("Players should be invincible and untargetable while AFK. If true, players can't go AFK during combat or if monsters are nearby.")
+                .define("infectedReplaceChance", 0.02f);
 
 //        CHAT_CONFIRMATION = CLIENT_BUILDER
 //                .comment("Set to true if you want to receive a chat confirmation of your AFK state when self applied.")
@@ -32,11 +32,11 @@ public class Config
 
     }
 
-    public static boolean invinciblePlayers;
+    public static float infectedReplaceChance;
 
     public static void serverSidedLoad()
     {
-//        invinciblePlayers = INVINCIBLE_PLAYERS.get();
+        infectedReplaceChance = INFECTED_REPLACE_CHANCE.get();
     }
 
     public static void clientSidedLoad() {

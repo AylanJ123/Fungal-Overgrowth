@@ -13,6 +13,11 @@ public class EnglishLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-//        add(LangKeys.COMMAND_ANSWER_ENTER.key(), "You are now AFK");
+        add(LangKeys.INFECTED_ZOMBIE.key(), "Infected Zombie");
+        add(LangKeys.FUNGAL_INFECTION.key(), "Fungal Infection");
+        add(LangKeys.INFECTED_CONVERT.key(), "Infection converts zombie");
+        add(LangKeys.DEATH.key(), "Infected Zombie dies");
+        add(LangKeys.HURT.key(), "Infected Zombie hurts");
+        add(LangKeys.SAY.key(), "Infected Zombie groans");
     }
 }

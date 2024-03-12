@@ -1,10 +1,15 @@
 package com.aylanj123.fungalovergrowth.event;
 import com.aylanj123.fungalovergrowth.FungalOvergrowthMod;
 import com.aylanj123.fungalovergrowth.classes.entity.InfectedZombie;
+import com.aylanj123.fungalovergrowth.datagen.SoundsDefinitions;
 import com.aylanj123.fungalovergrowth.datagen.language.*;
 import com.aylanj123.fungalovergrowth.networking.PacketHandler;
 import com.aylanj123.fungalovergrowth.registry.EntityRegistry;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
+import net.minecraft.data.PackOutput;
+import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -13,6 +18,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 public class CommonEventHandler {
 
@@ -38,35 +44,28 @@ public class CommonEventHandler {
         @SubscribeEvent
         static void gatherData(GatherDataEvent event) {
             FungalOvergrowthMod.LOGGER.info("Generating new data");
-            for (String locale : englishLocales)
-                event.getGenerator().addProvider(
-                        event.includeClient(),
-                        (DataProvider.Factory<EnglishLanguageProvider>)
-                                output -> new EnglishLanguageProvider(output, locale)
+            DataGenerator gen = event.getGenerator();
+            PackOutput output = gen.getPackOutput();
+            ExistingFileHelper helper = event.getExistingFileHelper();
+            CompletableFuture<HolderLookup.Provider> lookUp = event.getLookupProvider();
+
+            for (String locale : englishLocales) gen.addProvider(event.includeClient(),
+                    new EnglishLanguageProvider(output, locale)
                 );
-            for (String locale : spanishLocales)
-                event.getGenerator().addProvider(
-                        event.includeClient(),
-                        (DataProvider.Factory<SpanishLanguageProvider>)
-                                output -> new SpanishLanguageProvider(output, locale)
+            for (String locale : spanishLocales) gen.addProvider(event.includeClient(),
+                    new SpanishLanguageProvider(output, locale)
                 );
-            for (String locale : germanLocales)
-                event.getGenerator().addProvider(
-                        event.includeClient(),
-                        (DataProvider.Factory<GermanLanguageProvider>)
-                                output -> new GermanLanguageProvider(output, locale)
+            for (String locale : germanLocales) gen.addProvider(event.includeClient(),
+                    new GermanLanguageProvider(output, locale)
                 );
-            for (String locale : portugueseLocales)
-                event.getGenerator().addProvider(
-                        event.includeClient(),
-                        (DataProvider.Factory<PortugueseLanguageProvider>)
-                                output -> new PortugueseLanguageProvider(output, locale)
+            for (String locale : portugueseLocales) gen.addProvider(event.includeClient(),
+                    new PortugueseLanguageProvider(output, locale)
                 );
-            event.getGenerator().addProvider(
-                    event.includeClient(),
-                    (DataProvider.Factory<SwedishLanguageProvider>)
-                            output -> new SwedishLanguageProvider(output, "sv_se")
+            gen.addProvider(event.includeClient(),
+                    new SwedishLanguageProvider(output, "sv_se")
             );
+
+            gen.addProvider(event.includeServer(), new SoundsDefinitions(output, helper));
         }
 
         @SubscribeEvent

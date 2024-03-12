@@ -1,0 +1,8 @@
+{
+  "effect.fungal_overgrowth.fungal_infection": "Infección Fúngica",
+  "entity.fungal_overgrowth.infected_zombie": "Zombie Infectado",
+  "sounds.fungal_overgrowth.death": "Infected Zombie dies",
+  "sounds.fungal_overgrowth.hurt": "Infected Zombie hurts",
+  "sounds.fungal_overgrowth.infected_convert": "Infection converts zombie",
+  "sounds.fungal_overgrowth.say": "Infected Zombie groans"
+}

@@ -2,6 +2,7 @@ package com.aylanj123.fungalovergrowth.classes.entity;
 
 import com.aylanj123.fungalovergrowth.registry.EffectRegistry;
 import com.aylanj123.fungalovergrowth.registry.EntityRegistry;
+import com.aylanj123.fungalovergrowth.registry.SoundRegistry;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
@@ -88,17 +89,17 @@ public class InfectedZombie extends Zombie {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ZOMBIE_AMBIENT;
+        return SoundRegistry.SAY.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource pDamageSource) {
-        return SoundEvents.ZOMBIE_HURT;
+        return SoundRegistry.HURT.get();
     }
     @Override
 
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ZOMBIE_DEATH;
+        return SoundRegistry.DEATH.get();
     }
 
     public void convertBypass() {

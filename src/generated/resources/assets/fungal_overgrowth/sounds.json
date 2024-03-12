@@ -1,0 +1,28 @@
+{
+  "death": {
+    "sounds": [
+      "fungal_overgrowth:death"
+    ],
+    "subtitle": "sounds.fungal_overgrowth.death"
+  },
+  "hurt": {
+    "sounds": [
+      "fungal_overgrowth:hurt1",
+      "fungal_overgrowth:hurt2"
+    ],
+    "subtitle": "sounds.fungal_overgrowth.hurt"
+  },
+  "infected_convert": {
+    "sounds": [
+      "fungal_overgrowth:infected_convert"
+    ],
+    "subtitle": "sounds.fungal_overgrowth.infected_convert"
+  },
+  "say": {
+    "sounds": [
+      "fungal_overgrowth:say1",
+      "fungal_overgrowth:say2"
+    ],
+    "subtitle": "sounds.fungal_overgrowth.say"
+  }
+}

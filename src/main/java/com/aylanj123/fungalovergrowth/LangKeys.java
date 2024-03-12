@@ -1,22 +1,28 @@
 package com.aylanj123.fungalovergrowth;
 
+import com.aylanj123.fungalovergrowth.classes.effect.FungalInfection;
+import com.aylanj123.fungalovergrowth.classes.entity.InfectedZombie;
+import com.aylanj123.fungalovergrowth.registry.SoundRegistry;
+
 public enum LangKeys {
-    COMMAND_ANSWER_ENTER("commands.afk.enter"),
-    COMMAND_ANSWER_EXIT("commands.afk.exit"),
-    COMMAND_ANSWER_OTHER("commands.afk.other"),
-    STATE_ERROR_COOLDOWN("state.error.cooldown"),
-    STATE_ERROR_COMBAT("state.error.combat"),
-    STATE_ERROR_MONSTERS("state.error.monsters"),
-    KICK_IDLE("kick.idle"),
-    COMMAND_ERROR_STATE_APPLIED_SELF("commands.error.state.applied.self"),
-    COMMAND_ERROR_STATE_APPLIED_OTHER("commands.error.state.applied.other"),
-    COMMAND_ERROR_INVALID_SOURCE("commands.error.invalid.source"),
-    COMMAND_ERROR_INVALID_PLAYER("commands.error.invalid.player");
+
+    INFECTED_ZOMBIE(Prefix.ENTITY, InfectedZombie.ID),
+
+    FUNGAL_INFECTION(Prefix.EFFECT, FungalInfection.ID),
+
+    INFECTED_CONVERT(Prefix.SOUNDS, SoundRegistry.INFECTED_CONVERT_NAME),
+    DEATH(Prefix.SOUNDS, SoundRegistry.DEATH_NAME),
+    HURT(Prefix.SOUNDS, SoundRegistry.HURT_NAME),
+    SAY(Prefix.SOUNDS, SoundRegistry.SAY_NAME);
 
     private final String key;
 
     LangKeys(String key) {
-        this.key = FungalOvergrowthMod.MODID + "." + key;
+        this.key = String.format("%s.%s", FungalOvergrowthMod.MODID, key);
+    }
+
+    LangKeys(Prefix prefix, String key) {
+        this.key = String.format("%s.%s.%s", prefix, FungalOvergrowthMod.MODID, key);
     }
 
     public String key() {
@@ -27,4 +33,26 @@ public enum LangKeys {
     public String toString() {
         return key;
     }
+
+    private enum Prefix {
+        ENTITY("entity"),
+        EFFECT("effect"),
+        SOUNDS("sounds");
+
+        private final String key;
+
+        Prefix(String key) {
+            this.key = key;
+        }
+
+        public String key() {
+            return key;
+        }
+
+        @Override
+        public String toString() {
+            return key;
+        }
+    }
+
 }
